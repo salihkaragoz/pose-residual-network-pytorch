@@ -4,10 +4,11 @@ This is the code for the paper
 
 Muhammed Kocabas, Salih Karagoz, Emre Akbas. MultiPoseNet: Fast Multi-Person Pose Estimation using Pose Residual Network. In ECCV, 2018. https://arxiv.org/abs/1807.04067
 
-## Getting Started
-
 We just released only Pose Residual Network part of the paper. We are planing to share whole code after finishing.
 
+
+## Getting Started
+We have tested our method on [Coco Dataset](http://cocodataset.org)
 
 ### Prerequisites
 
@@ -23,16 +24,13 @@ scikit-image
 
 ### Installing
 
-1. Clone this repository
-```
-git clone https://github.com/salihkaragoz/pose-residual-network-pytorch.git
-```
-2. Install pytorch that fit your system. [Pytorch](https://pytorch.org/)
+1. Clone this repository ```git clone https://github.com/salihkaragoz/pose-residual-network-pytorch.git```
+2. Install Pytorch in accordance with your system. [Pytorch](https://pytorch.org/)
 
 3. ```pip install -r src/requirements.txt```
+4. To download COCO dataset Train and Validation 2017 Annotations run the bash.
+```bash coco.sh```
 
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Training
 
