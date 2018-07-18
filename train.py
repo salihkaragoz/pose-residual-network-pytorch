@@ -10,6 +10,7 @@ from torch.utils.data import DataLoader
 from opt import Options
 from src.model import PRN
 from src.eval import Evaluation
+from src.utils import save_ckpt
 from src.utils import save_options
 from src.data_loader import CocoDataset
 
@@ -28,11 +29,12 @@ def main(optin):
     save_options(optin, os.path.join('checkpoint/' + optin.exp), model.__str__(), criterion.__str__(), optimizer.__str__())
 
     print ('---------Loading Coco Training Set--------')
-    coco_train = COCO(os.path.join('data/person_keypoints_train2017.json'))
+    coco_train = COCO(os.path.join('data/annotations/person_keypoints_train2017.json'))
     trainloader = DataLoader(dataset=CocoDataset(coco_train,optin),batch_size=optin.batch_size, num_workers=optin.num_workers, shuffle=True)
 
     bar = Bar('-->', fill='>', max=len(trainloader))
 
+    err_best = 1000
     cudnn.benchmark = True
     for epoch in range(optin.number_of_epoch):
         print ('-------------Training Epoch {}-------------'.format(epoch))
@@ -55,11 +57,24 @@ def main(optin):
                 bar.next()
 
 
-        Evaluation(model, optin)
+        #Evaluation(model, optin)
 
-
-
-
+        err_test = loss.data
+        is_best = err_test < err_best
+        if is_best:
+            save_ckpt({'epoch': epoch + 1,
+                           'err': err_best,
+                           'state_dict': model.state_dict(),
+                           'optimizer': optimizer.state_dict()},
+                          ckpt_path='checkpoint/'+optin.exp,
+                          is_best=True)
+        else:
+            save_ckpt({'epoch': epoch + 1,
+                           'err': err_best,
+                           'state_dict': model.state_dict(),
+                           'optimizer': optimizer.state_dict()},
+                          ckpt_path='checkpoint/'+optin.exp,
+                          is_best=False)
 
         model.train()
 

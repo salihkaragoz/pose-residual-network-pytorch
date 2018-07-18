@@ -28,8 +28,8 @@ scikit-image
 2. Install Pytorch in accordance with your system. [Pytorch](https://pytorch.org/)
 
 3. ```pip install -r src/requirements.txt```
-4. To download COCO dataset Train and Validation 2017 Annotations run the bash.
-```bash coco.sh```
+4. To download COCO dataset Train and Validation 2017 Annotations run the bash. (Datasize: ~240Mb)
+```bash data/coco.sh```
 
 
 ## Training

@@ -20,7 +20,7 @@ def Evaluation(model,optin):
 
     model.eval()
 
-    cocodir = 'data/person_keypoints_val2017.json'
+    cocodir = 'data/annotations/person_keypoints_val2017.json'
     ann = json.load(open(cocodir))
     bbox_results = ann['annotations']
 
