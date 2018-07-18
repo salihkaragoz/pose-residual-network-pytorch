@@ -24,12 +24,13 @@ scikit-image
 
 ### Installing
 
-1. Clone this repository ```git clone https://github.com/salihkaragoz/pose-residual-network-pytorch.git```
+1. Clone this repository 
+```git clone https://github.com/salihkaragoz/pose-residual-network-pytorch.git```
 2. Install Pytorch in accordance with your system. [Pytorch](https://pytorch.org/)
 
 3. ```pip install -r src/requirements.txt```
-4. To download COCO dataset Train and Validation 2017 Annotations run the bash. (Datasize: ~240Mb)
 
+4. To download COCO dataset Train and Validation 2017 Annotations run the bash. (Datasize: ~240Mb)                           
 ```bash data/coco.sh```
 
 
