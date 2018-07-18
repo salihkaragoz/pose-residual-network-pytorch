@@ -4,11 +4,10 @@ This is the code for the paper
 
 Muhammed Kocabas, Salih Karagoz, Emre Akbas. MultiPoseNet: Fast Multi-Person Pose Estimation using Pose Residual Network. In ECCV, 2018. https://arxiv.org/abs/1807.04067
 
-We just released only Pose Residual Network part of the paper. 
-
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+We just released only Pose Residual Network part of the paper. We are planing to share whole code after finishing.
+
 
 ### Prerequisites
 
@@ -17,24 +16,23 @@ What things you need to install the software and how to install them
 ```
 python
 pytorch
-
+numpy
+tqdm
+pycocotools
+progress
+scikit-image
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
+1. Clone this repository
 ```
-Give the example
+git clone https://github.com/salihkaragoz/pose-residual-network-pytorch.git
 ```
+2. Install pytorch that fit your system. [Pytorch](https://pytorch.org/)
 
-And repeat
+3. ```pip install -r src/requirements.txt```
 
-```
-until finished
-```
 
 End with an example of getting some data out of the system or using it for a little demo
 
@@ -78,9 +76,6 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
@@ -88,7 +83,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+
+## Citation
 
