@@ -57,7 +57,7 @@ def main(optin):
                 bar.next()
 
 
-        #Evaluation(model, optin)
+        Evaluation(model, optin)
 
         err_test = loss.data
         is_best = err_test < err_best
