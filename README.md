@@ -1,3 +1,5 @@
+**WARNING:** _This repository is under active construction._
+
 # Pose Residual Network
 
 This is the code for the paper:
@@ -42,16 +44,16 @@ For more options look at opt.py
 Results on COCO val2017 Ground Truth data.
 
 ```
- Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.877
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.880
  Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.968
- Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.899
- Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.872
- Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.894
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.902
- Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.973
- Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.919
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.888
- Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.929
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.908
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.870
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.898
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.904
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.974
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.920
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.889
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.931
 ```
 
 ## License
