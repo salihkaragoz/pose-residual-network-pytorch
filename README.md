@@ -41,7 +41,7 @@ scikit-image
 For more options look at opt.py
 
 ## Results
-We have just published only the results on COCO Val Groun Truth.
+Results on COCO val2017 Ground Truth data.
 
 ```
  Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.877
@@ -56,12 +56,7 @@ We have just published only the results on COCO Val Groun Truth.
  Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.929
 ```
 
-
-## Authors
-
 ## License
-
-## Acknowledgments
 
 ## Citation
 If you find this code useful for your research, please consider citing the following paper:
