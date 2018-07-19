@@ -2,6 +2,7 @@ import os
 import math
 import json
 import numpy as np
+from tqdm import tqdm
 from random import shuffle
 
 from pycocotools.coco import COCO
@@ -72,7 +73,7 @@ def Evaluation(model,optin):
             temporary_peak_res.append(p)
     peak_results = temporary_peak_res
 
-    for p in peak_results:
+    for p in tqdm(peak_results):
         idx = p['image_id']
         image_ids.append(idx)
 
