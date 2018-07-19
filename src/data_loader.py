@@ -95,7 +95,7 @@ class CocoDataset(Dataset):
                                 weights[y0, x0, j] = 1
 
         for t in range(17):
-            output[:, :, t] = gaussian(output[:, :, t])
+            weights[:, :, t] = gaussian(weights[:, :, t])
         output = gaussian(output, sigma=2, mode='constant', multichannel=True)
         # weights = gaussian_multi_input_mp(weights)
         # output = gaussian_multi_output(output)
