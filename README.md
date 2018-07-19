@@ -28,7 +28,7 @@ scikit-image
 1. Clone this repository 
 ```git clone https://github.com/salihkaragoz/pose-residual-network-pytorch.git```
 
-2. Install Pytorch in accordance with your system. [Pytorch](https://pytorch.org/)
+2. Install [Pytorch](https://pytorch.org/)
 
 3. ```pip install -r src/requirements.txt```
 
