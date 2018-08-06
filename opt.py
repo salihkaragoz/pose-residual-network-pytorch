@@ -11,6 +11,7 @@ class Options:
 
         # --------------------------  General Training Options
         self.parser.add_argument('--lr', type=float, default=1.0e-3, help='Learning Rate')
+        self.parser.add_argument('--lr_gamma', type=float, default=0.9, help='Gamma Rate')
         self.parser.add_argument('--number_of_epoch', type=int, default=16)
         self.parser.add_argument('--num_workers', type=int, default=4)
         self.parser.add_argument('--batch_size', type=int, default=8)
@@ -22,6 +23,7 @@ class Options:
         # --------------------------
         self.parser.add_argument('--coeff', type=int, default=2, help='Coefficient of bbox size')
         self.parser.add_argument('--threshold', type=int, default=0.21, help='BBOX threshold')
+        self.parser.add_argument('--test_cp', type=str,default='checkpoint/test/default.pth.tar' ,help='Path to model for testing')
         self.parser.add_argument('--num_of_keypoints', type=int, default=3, help='Minimum number of keypoints for each bbox in training')
         self.parser.add_argument('--test_keypoint_count', type=int, default=0, help='Validating with different keypoint count')
         self.parser.add_argument('--window_size', type=int, default=15, help='Windows size for cropping')

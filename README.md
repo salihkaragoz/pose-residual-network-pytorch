@@ -38,20 +38,27 @@ scikit-image
 
 For more options look at opt.py
 
+## Testing
+
+1. Download pre-train [model](https://drive.google.com/file/d/1Bp25zaMDoQp9BI-ge-5jpIMs0mNiPKA3/view?usp=sharing)
+
+2. `python test.py --test_cp=PathToPreTrainModel/PRN.pth.tar`
+
 ## Results
 Results on COCO val2017 Ground Truth data.
 
 ```
- Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.880
- Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.968
- Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.908
- Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.870
- Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.898
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.904
- Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.974
- Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.920
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.889
- Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.931
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.892
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.978
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.921
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.883
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.912
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.917
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.982
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.937
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.902
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.944
+
 ```
 
 ## License
