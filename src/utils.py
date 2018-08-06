@@ -12,11 +12,15 @@ def save_options(opt, path,model,criterion, optimizer):
         f.write(json.dumps(model_struc, sort_keys=True, indent=4))
 
 
-def save_ckpt(state, ckpt_path, is_best=True):
-    if is_best:
-        file_path = os.path.join(ckpt_path, 'ckpt_best.pth.tar')
-        torch.save(state, file_path)
-    else:
-        file_path = os.path.join(ckpt_path, 'ckpt_last.pth.tar')
-        torch.save(state, file_path)
+def save_model(state, checkpoint, filename='checkpoint.pth.tar'):
+    filename = 'epoch'+str(state['epoch']) + filename
+    filepath = os.path.join(checkpoint, filename)
+    torch.save(state, filepath)
 
+def adjust_lr(optimizer, epoch, gamma):
+    schedule = list(range(3,32,2))
+    """Sets the learning rate to the initial LR decayed by schedule"""
+    if epoch in schedule:
+        for param_group in optimizer.param_groups:
+            param_group['lr'] *= gamma
+    return optimizer.state_dict()['param_groups'][0]['lr']

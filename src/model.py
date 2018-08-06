@@ -1,3 +1,4 @@
+
 import torch
 from torch import nn
 import torch.nn.functional as F
@@ -18,7 +19,7 @@ class PRN(nn.Module):
         self.height    = coeff*28
         self.width     = coeff*18
         self.dens1     = nn.Linear(self.height*self.width*17, node_count)
-        self.middle    = nn.Linear(node_count, node_count)
+        self.bneck     = nn.Linear(node_count, node_count)
         self.dens2     = nn.Linear(node_count, self.height*self.width*17)
         self.drop      = nn.Dropout()
         self.add       = Add()
@@ -27,7 +28,7 @@ class PRN(nn.Module):
     def forward(self, x):
         res = self.flatten(x)
         out = self.drop(F.relu(self.dens1(res)))
-        out = self.drop(F.relu(self.middle(out)))
+        out = self.drop(F.relu(self.bneck3(out)))
         out = F.relu(self.dens2(out))
         out = self.add(out,res)
         out = self.softmax(out)

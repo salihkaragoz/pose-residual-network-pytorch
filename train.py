@@ -10,8 +10,8 @@ from torch.utils.data import DataLoader
 from opt import Options
 from src.model import PRN
 from src.eval import Evaluation
-from src.utils import save_ckpt
 from src.utils import save_options
+from src.utils import save_model, adjust_lr
 from src.data_loader import CocoDataset
 
 
@@ -20,10 +20,11 @@ def main(optin):
         os.makedirs('checkpoint/'+optin.exp)
 
     model = PRN(optin.node_count,optin.coeff).cuda()
+    #model = torch.nn.DataParallel(model).cuda()
     optimizer = torch.optim.Adam(model.parameters(), lr=optin.lr)
     criterion = torch.nn.BCELoss().cuda()
 
-    print model
+    print (model)
     print(">>> total params: {:.2f}M".format(sum(p.numel() for p in model.parameters()) / 1000000.0))
 
     save_options(optin, os.path.join('checkpoint/' + optin.exp), model.__str__(), criterion.__str__(), optimizer.__str__())
@@ -34,11 +35,12 @@ def main(optin):
 
     bar = Bar('-->', fill='>', max=len(trainloader))
 
-    err_best = 1000
     cudnn.benchmark = True
     for epoch in range(optin.number_of_epoch):
         print ('-------------Training Epoch {}-------------'.format(epoch))
-        print 'Total Step:', len(trainloader), '| Total Epoch:', optin.number_of_epoch
+        print ('Total Step:', len(trainloader), '| Total Epoch:', optin.number_of_epoch)
+        lr = adjust_lr(optimizer, epoch, optin.lr_gamma)
+        print('\nEpoch: %d | LR: %.8f' % (epoch + 1, lr))
         for idx, (input, label) in tqdm(enumerate(trainloader)):
 
             input = input.cuda().float()
@@ -56,25 +58,13 @@ def main(optin):
                 .format(ttl=bar.elapsed_td, eta=bar.eta_td, loss=loss.data, epoch=epoch)
                 bar.next()
 
-
         Evaluation(model, optin)
 
-        err_test = loss.data
-        is_best = err_test < err_best
-        if is_best:
-            save_ckpt({'epoch': epoch + 1,
-                           'err': err_best,
-                           'state_dict': model.state_dict(),
-                           'optimizer': optimizer.state_dict()},
-                          ckpt_path='checkpoint/'+optin.exp,
-                          is_best=True)
-        else:
-            save_ckpt({'epoch': epoch + 1,
-                           'err': err_best,
-                           'state_dict': model.state_dict(),
-                           'optimizer': optimizer.state_dict()},
-                          ckpt_path='checkpoint/'+optin.exp,
-                          is_best=False)
+        save_model({
+            'epoch': epoch + 1,
+            'state_dict': model.state_dict(),
+            'optimizer' : optimizer.state_dict(),
+        }, checkpoint='checkpoint/' + optin.exp)
 
         model.train()
 

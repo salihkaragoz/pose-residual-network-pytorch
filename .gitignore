@@ -1,3 +1,4 @@
 #
 *.pyc
 *.json
+*.pth.tar
