@@ -125,11 +125,11 @@ def crop(img, c, N=13):
 
     h = (N - 1) / 2
 
-    x1 = (c[0] - h)
-    y1 = (c[1] - h)
+    x1 = int(c[0] - h)
+    y1 = int(c[1] - h)
 
-    x2 = (c[0] + h) + 1
-    y2 = (c[1] + h) + 1
+    x2 = int(c[0] + h) + 1
+    y2 = int(c[1] + h) + 1
 
     if x1 < 0:
         x1 = 0
