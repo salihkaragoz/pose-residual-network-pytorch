@@ -40,7 +40,7 @@ For more options look at opt.py
 
 ## Testing
 
-1. Download pre-train [model](https://drive.google.com/file/d/1Bp25zaMDoQp9BI-ge-5jpIMs0mNiPKA3/view?usp=sharing)
+1. Download pre-train [model](https://drive.google.com/file/d/1OhdMllLGnpRAk6Wexw8LzXF_EHiolVj1/view?usp=sharing)
 
 2. `python test.py --test_cp=PathToPreTrainModel/PRN.pth.tar`
 
